@@ -3,6 +3,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
 
 import { AppRoutingModule } from './app-routing.module';
+import { UserModule } from './user/user.module';
+
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +13,6 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
-
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-   
+    UserModule
   ],
   
   providers: [],
