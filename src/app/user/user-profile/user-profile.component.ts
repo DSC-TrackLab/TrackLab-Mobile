@@ -14,12 +14,4 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  editField(){
-    this.edit = true;
-  }
-
-  approveEdit(){
-    this.edit = false;
-  }
-
 }
