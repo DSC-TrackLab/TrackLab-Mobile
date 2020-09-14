@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DriverProfileComponent implements OnInit {
 
+  edit = false;
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,0 +1,92 @@
+.box{
+    background: #1F2729;
+    color: white;
+  } 
+  
+.example-full-width {
+    width: 100%;
+}
+
+::ng-deep  .mat-form-field-label {
+    /*change color of label*/
+    color:#DBDBDB !important ;
+    text-size-adjust: 24px;
+    }
+
+    ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #81D079 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+    /*change color of underline when focused*/
+    background-color: green !important;;
+    }
+button{
+    background: #25E095 !important;
+}
+
+/* arrow button glowing */
+.arrow{
+    color: #81D079;
+    width: 40px;
+    
+}
+.arrow{
+    animation: glowing 1300ms infinite;
+}
+@keyframes glowing {
+    0% {
+    color:  #25E095;
+    
+    }
+    50% {
+    color: #49e819;
+    
+    }
+    100% {
+    color: #2ba805;
+    
+    }
+}
+.spacer{
+    color:#25E095 ;
+    margin-top: 3.5rem;
+    margin-bottom: 4.5rem;
+}
+
+.spacer a:hover{
+    color:#25E095 ;
+}
+
+div.field {
+    float: left;
+}
+
+.icon{
+    cursor: pointer
+}
+
+.icon:hover{
+    color: #25E095;
+}
+
+.info-table td {
+    border-bottom: 2px solid #81D079;
+    padding-top: 35px;
+    text-align: left;
+    width: 50%;
+}
+
+.info-table {
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 27%;
+    }
+}

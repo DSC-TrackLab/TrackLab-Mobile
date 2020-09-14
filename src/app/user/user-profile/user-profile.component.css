@@ -6,13 +6,6 @@
   .example-full-width {
     width: 100%;
   }
-  .main {
-    background: #1F2729;
-    color:#25E095 ;
-  }
-  .mat-label{
-    color:#25E095 !important ;
-  }
   ::ng-deep  .mat-form-field-label {
     /*change color of label*/
     color:#DBDBDB !important ;

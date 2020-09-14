@@ -1,3 +1,4 @@
+import { DriverProfileComponent } from './user/driver-profile/driver-profile.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component:RegisterComponent  },
   { path: 'guest', component:GuestsigninComponent },
-  { path: 'profile', component: UserProfileComponent }
+  { path: 'profile/client', component: UserProfileComponent },
+  {path: 'profile/driver', component: DriverProfileComponent}
 ];
 
 @NgModule({
