@@ -1,3 +1,4 @@
+import { FirebaseModule } from './_modules/firebase/firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
@@ -30,8 +31,8 @@ import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.c
     BrowserAnimationsModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule,
-   
+	ReactiveFormsModule,
+	FirebaseModule
   ],
   
   providers: [],
