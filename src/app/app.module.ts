@@ -3,7 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import { UserModule } from './user/user.module';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,8 +28,7 @@ import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.
     BrowserAnimationsModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule,
-    UserModule
+    ReactiveFormsModule
   ],
   
   providers: [],
