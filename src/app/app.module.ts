@@ -1,3 +1,4 @@
+import { FirebaseModule } from './_modules/firebase/firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
@@ -12,6 +13,7 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
+import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.
     RegisterComponent,
     NavbarComponent,
     ForgotpasswordComponent,
-    GuestsigninComponent
+    GuestsigninComponent,
+    BackArrowComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.
     BrowserAnimationsModule,
     AngularMaterialModule,
     FormsModule,
-    ReactiveFormsModule
+	ReactiveFormsModule,
+	FirebaseModule
   ],
   
   providers: [],

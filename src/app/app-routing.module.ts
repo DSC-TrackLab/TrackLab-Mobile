@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component:RegisterComponent  },
   { path: 'guest', component:GuestsigninComponent },
-  { path: 'user', loadChildren: () => import('./_modules/user/user.module').then(m => m.UserModule) }
+  { path: 'user', loadChildren: () => import('./_modules/user/user.module').then(m => m.UserModule) },
+  { path: 'admin', loadChildren: () => import('./_modules/admin/admin.module').then(m => m.AdminModule)}
 ];
 
 @NgModule({

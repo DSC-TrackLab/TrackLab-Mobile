@@ -112,28 +112,7 @@ button{
 }
 
 /* arrow button glowing */
-.arrow{
-  color: #81D079;
-  width: 40px;
-  
-}
-.arrow{
-  animation: glowing 1300ms infinite;
-}
-@keyframes glowing {
-  0% {
-    color:  #25E095;
-   
-  }
-  50% {
-    color: #49e819;
-    
-  }
-  100% {
-    color: #2ba805;
-    
-  }
-}
+
 .spacer{
   color:#25E095 ;
   margin-top: 3.5rem;
@@ -148,7 +127,7 @@ button{
   .example-form {
     min-width: 150px;
     max-width: 500px;
-    width: 100%;
-    margin-left: 27%;
+    
+    padding-left: 27%;
   }
-}
+} 
