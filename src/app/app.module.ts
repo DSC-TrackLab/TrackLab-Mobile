@@ -4,6 +4,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,7 +14,6 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
 import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.component';
-
 
 @NgModule({
   declarations: [
