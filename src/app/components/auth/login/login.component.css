@@ -31,9 +31,13 @@
 }
 
 .spacer a:hover{
-  color:#25E095 ;
+  color:green ;
 }
 
 a{
   cursor: pointer;
+}
+
+a:hover{
+  color:#81D079 ;
 }

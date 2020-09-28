@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  link() : void{
-    this.router.navigate(["forgotpassword"])
+  link(route_:string) : void{
+    this.router.navigate([route_])
   }
   login() : void {
     if(this.username == 'admin' && this.password == 'admin'){
