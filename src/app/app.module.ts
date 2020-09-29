@@ -2,6 +2,7 @@ import { FirebaseModule } from './_modules/firebase/firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +15,7 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
 import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.component';
+
 
 @NgModule({
   declarations: [
@@ -32,10 +34,11 @@ import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.c
     AngularMaterialModule,
     FormsModule,
 	ReactiveFormsModule,
-	FirebaseModule
+  FirebaseModule,
+  AngularFirestoreModule
   ],
   
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
