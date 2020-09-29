@@ -13,8 +13,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private router:Router, private location:Location) { }
 
-  link() : void{
-    this.router.navigate(["login"])
+  link(route_:string) : void{
+    this.router.navigate([route_])
   }
 
   guest(): void{

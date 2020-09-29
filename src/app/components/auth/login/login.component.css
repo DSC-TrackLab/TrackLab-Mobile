@@ -31,6 +31,10 @@
 }
 
 .spacer a:hover{
-  color:#25E095 ;
+  color:green !important;
 }
 
+a{
+  cursor: pointer;
+  color: #81D079  !important;
+}
