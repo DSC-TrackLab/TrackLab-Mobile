@@ -1,0 +1,21 @@
+
+
+.buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+h2 {
+   color: #41444B
+}
+
+.buttons button {
+    margin: 5px;
+    padding: 15px 10px;
+    background: #25E095;
+    color: #41444B;
+}
+
+.buttons button:focus{
+    outline: none;
+}
