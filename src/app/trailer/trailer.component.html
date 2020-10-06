@@ -27,7 +27,12 @@
               <mat-radio-button value="always">Power only</mat-radio-button>
               <mat-radio-button value="always">Multi-car</mat-radio-button>
   
-              <mat-radio-button value="always" (click)="guest()">Trailer capacity</mat-radio-button>
+              <mat-form-field appearance="fill">
+                <mat-label>Trailer capacity</mat-label>
+                <mat-select>
+                  <mat-option value="option">Option</mat-option>
+                </mat-select>
+              </mat-form-field>
   
             </mat-radio-group>
           </mat-card-content>
