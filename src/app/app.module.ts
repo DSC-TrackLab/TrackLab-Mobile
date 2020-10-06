@@ -14,9 +14,9 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
 import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.component';
-import { NewComponentComponent } from './new-component/new-component.component';
-import { DriverComponent } from './driver/driver.component';
-import { TrailerComponent } from './trailer/trailer.component';
+// import { NewComponentComponent } from './new-component/new-component.component';
+import { DriverComponent } from './components/driver/driver.component';
+//import { TrailerComponent } from './trailer/trailer.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { TrailerComponent } from './trailer/trailer.component';
     ForgotpasswordComponent,
     GuestsigninComponent,
     BackArrowComponent,
-    NewComponentComponent,
+  //  NewComponentComponent,
     DriverComponent,
-    TrailerComponent
+  //  TrailerComponent
   ],
   imports: [
     BrowserModule,
