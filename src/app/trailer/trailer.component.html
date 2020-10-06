@@ -1,0 +1,49 @@
+<div class="container">
+    <div  class="justify-content-center text-center">
+      <div class="">
+        <mat-card class="g-box">
+          <!-- <mat-icon aria-hidden="false" aria-label="arrow icon" class="arrow" (click)="backClicked()">keyboard_backspace</mat-icon> -->
+          <app-back-arrow (click)="backClicked()"></app-back-arrow>
+          <img  src="/assets/logo.svg" width="200px" />
+          <mat-header class="text-center">
+            <h3 class="mat-h3 ">Trailer Details</h3>
+           </mat-header>
+          <form class="example-form">
+      
+          <mat-card-content>
+            <h4 class="mat-h4 mb-4">Please select trailer type:</h4>
+            <mat-radio-group class="justify-content-center" >
+              <mat-radio-button value="auto">Flatbed</mat-radio-button>
+              <mat-radio-button value="always">Extendable flatbed</mat-radio-button>
+              <mat-radio-button value="always">Enclosed</mat-radio-button>
+              <mat-radio-button value="always">Stretch single drop bed</mat-radio-button>
+              <mat-radio-button value="always">Refridgerated</mat-radio-button>
+              <mat-radio-button value="always">Removable gooseneck</mat-radio-button>
+              <mat-radio-button value="always">Lowboy</mat-radio-button>
+              <mat-radio-button value="always">Side Kit</mat-radio-button>
+              <mat-radio-button value="always">Step deck</mat-radio-button>
+              <mat-radio-button value="always">Stretch RGN</mat-radio-button>
+              <mat-radio-button value="always">Conestoga</mat-radio-button>
+              <mat-radio-button value="always">Power only</mat-radio-button>
+              <mat-radio-button value="always">Multi-car</mat-radio-button>
+  
+              <mat-radio-button value="always" (click)="guest()">Trailer capacity</mat-radio-button>
+  
+            </mat-radio-group>
+          </mat-card-content>
+  
+            <mat-card-content>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Vehicle capacity:">
+              </mat-form-field>
+            </mat-card-content>    
+  
+            <button mat-stroked-button class="btn m-4">Next </button>
+           
+          </form>
+         
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

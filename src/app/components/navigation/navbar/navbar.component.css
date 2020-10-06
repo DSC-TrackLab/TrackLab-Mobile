@@ -1,0 +1,27 @@
+.spacer{
+  flex: 1 1 auto;
+}
+
+.mat-button{
+  color:white;
+  
+}
+
+.mat-button:hover {
+  color:black;
+  background: #6b0da1;
+}
+a{
+  text-decoration: none;
+}
+
+.mat-toolbar{
+  margin-bottom: 2em;
+}
+.mat-raised-button{
+  background:#ff4081;
+}
+.mat-raised-button:hover{
+  background:#7e1238;
+  color: white;
+}
