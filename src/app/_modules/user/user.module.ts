@@ -8,7 +8,10 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 import { NgTickerModule } from 'ng-ticker';
 
 @NgModule({
-  declarations: [UserComponent, UserDashboardComponent],
+  declarations: [
+    UserComponent, 
+    UserDashboardComponent
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
