@@ -18,6 +18,9 @@ import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgot
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
 import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { ResetPasswordComponent } from './components/auth/resetpassword/reset-password.component';
+import { PasswordresetComponent } from './components/auth/passwordreset/passwordreset.component';
+
 
 
 
@@ -30,7 +33,9 @@ import { AdminComponent } from './components/admin/admin.component';
     ForgotpasswordComponent,
     GuestsigninComponent,
     BackArrowComponent,
-    AdminComponent
+    AdminComponent,
+    ResetPasswordComponent,
+    PasswordresetComponent
   ],
   imports: [
     BrowserModule,

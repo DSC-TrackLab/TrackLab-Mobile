@@ -1,97 +1,155 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { Router } from '@angular/router';
-import { AngularFirestore} from '@angular/fire/firestore';
+import { ResolveStart, Router } from '@angular/router';
+import { AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
+import  { Observable, of } from 'rxjs';
+import { map,switchMap } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
+
+export interface User {
+   uid: string;
+  displayName:string;
+  name:string;
+  surname:string;
+  phonenumber:string;
+  email: string;
+  role: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  newUser:any
-
-  constructor(public db:AngularFirestore,public afAuth:AngularFireAuth,public router:Router) { 
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.newUser = user;
-        localStorage.setItem('user', JSON.stringify(this.newUser));
-        JSON.parse(localStorage.getItem('user'));
-      } else {
-        localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
-      }
-    })
+  user:Observable<User>
+  //newUser:any
+role:string
+  constructor(public db:AngularFirestore,public afAuth:AngularFireAuth,public router:Router,private snackbar:MatSnackBar) { 
+    // this.afAuth.authState.subscribe(user => {
+    //   if (user) {
+    //     this.newUser = user;
+    //     localStorage.setItem('user', JSON.stringify(this.newUser));
+    //     JSON.parse(localStorage.getItem('user'));
+    //   } else {
+    //     localStorage.setItem('user', null);
+    //     JSON.parse(localStorage.getItem('user'));
+    //   }
+    // })
+    this.user=this.afAuth.authState.pipe(
+      switchMap(user =>{
+        if(user){
+          return this.db.doc<User>(`users/${user.uid}`).valueChanges();
+        }else{
+          return of(null)
+        }
+      })
+    )
   }
 
-  
+  //user roles
+RoleData(roles){
+  this.role=roles
+}
+//display errors using snackbar
+openSnackBar(message){
+  this.snackbar.open(message)
+}
+  //login method
   login( email: string, password: string) {
     this.afAuth.signInWithEmailAndPassword(email, password)
-      .catch(error => {
-        console.log(error.message)
-      })
       .then(userCredential => {
         if(userCredential) {
           this.router.navigate(['dashboard']);
         }
+      }).catch(error => {
+       
+        this.openSnackBar(error.message)
       })
   }
+
+  //get auth state
   getUserState(){
     return this.afAuth.authState
   }
 
-createUser(user){
-  // const {email,password,fullname}=user;
+
+//register user
+async createUser(user){
+  
   this.afAuth.createUserWithEmailAndPassword(user.email,user.password)
   .then(userCredential=>{
-    this.newUser=user;
-    userCredential.user.updateProfile({
-      displayName:user.fullname 
-    });
+    const newUser={
+      uid:userCredential.user.uid,
+      displayName:`${user.name + " "+user.surname}`,
+      name:user.name,
+      surname:user.surname,
+      phonenumber:user.phonenumber,
+      role:this.role,
+      email:userCredential.user.email,
+    }
 
-    this.insertUserData(userCredential)
+    console.log(newUser)
+    console.log(userCredential)
+    this.insertUserData(newUser)
     this.router.navigate(['login'])
 
-  }).catch(err=>{
-    console.log(err.message)
-    this.router.navigate(['login'])
+  }).catch(error=>{
+    this.openSnackBar(error.message)
+   // this.router.navigate(['login'])
   })
 }
 
-// Reset Forggot password
+
+
+// Reset Forgot password
 ForgotPassword(passwordResetEmail) {
   return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
   .then(() => {
-    window.alert('Password reset email sent, check your inbox.');
-   setTimeout(()=>{
-     this.router.navigate[('login')];
-   },5000)
+    //window.alert('Password reset email sent, check your inbox.');
+    this.openSnackBar('Password reset email sent, check your inbox.')
+  
   }).catch((error) => {
-    window.alert(error)
+    this.openSnackBar(error.message)
   })
 }
 
-  // SetUserData(user) {
-  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-  //   const userData: User = {
-  //     uid: user.uid,
-  //     email: user.email,
-  //     displayName: user.fullName,
-  //     fullName: user.fullName,
-  //     emailVerified: user.emailVerified,
-  //     UserType:user.UserType,
 
-  //   }
-  //   return userRef.set(userData, {
-  //     merge: true
-  //   })
-  // }
-  insertUserData(userCredential:firebase.auth.UserCredential){
-    return this.db.doc(`users/${userCredential.user.uid}`).set({
-      email:this.newUser.email,
-      fullname:this.newUser.fullname,
-      role:this.newUser.roles
+
+ async insertUserData(user) {
+   try {
+    const userRef: AngularFirestoreDocument<User> = this.db.doc(`users/${user.uid}`);
+    const userData: User = {
+       uid: user.uid,
+      displayName:user.displayName,
+      email: user.email,
+      name: user.name,
+      surname:user.surname,
+      phonenumber:user.phonenumber,
+      role:user.role,
+
+    }
+    console.log(userData);
+    
+    return  await userRef.set(userData, {
+      merge: true
     })
- }
+
+   } catch (error) {
+     console.log(error);
+     
+   }
+    
+  }
+
+//   insertUserData(userCredential:firebase.auth.UserCredential){
+//     return this.db.doc(`users/${userCredential.user.uid}`).set({
+//       email:this.newUser.email,
+//       fullname:this.newUser.fullname,
+//       role:this.newUser.roles
+//     })
+//  }
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null ) ? true : false;
@@ -104,6 +162,18 @@ logout() {
     this.router.navigate(['sign-in']);
   })
 }
-
+HandleResetPassword(newPassword,code){
+  
+    this.afAuth.confirmPasswordReset(code, newPassword)
+    .then(()=> {
+      // Success
+      this.router.navigate(['login'])
+    })
+    .catch((error) =>{
+      // Invalid code
+      this.openSnackBar(error.message)
+    })
+  
+}
 
 }

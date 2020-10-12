@@ -5,10 +5,12 @@ import { RegisterComponent } from './components/auth/register/register.component
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
 import { AdminComponent } from './_modules/admin/admin.component';
+import { PasswordresetComponent } from './components/auth/passwordreset/passwordreset.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'register' },
   { path: 'forgotpassword', component: ForgotpasswordComponent },
+  {path:'reset',component:PasswordresetComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component:RegisterComponent  },
   { path: 'guest', component:GuestsigninComponent },

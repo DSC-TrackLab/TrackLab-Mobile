@@ -11,9 +11,12 @@ import { AuthService } from 'src/app/_services/auth.service';
 export class RegisterComponent implements OnInit {
 
   userRole:any;
+  role:string='Customer'
   Roles: any = ['Courier/Driver', 'Customer', 'Guest Recipient'];
 
   constructor(private router:Router, private location:Location,public authService:AuthService) { }
+  ngOnInit(): void {
+  }
 
   link(route_:string) : void{
     this.router.navigate([route_])
@@ -27,18 +30,24 @@ backClicked() :void{
     this.location.back()
   }
   
-  ngOnInit(): void {
-  }
-
+  
   onClick(event:any):void{
     this.userRole=event.target.value;
   }
   createUser(frm){
+    
     console.log(frm.value);
     
     this.authService.createUser(frm.value)
   }
 
+onItemChange(role){
+  this.authService.RoleData(role)
+  console.log(role);
+  
+}
+
+//direct user to correct  to correct modules
   handleRadioClicked(role:string):void{
     if(role=='Guest Recipient'){
       this.userRole='Guest Recipient'

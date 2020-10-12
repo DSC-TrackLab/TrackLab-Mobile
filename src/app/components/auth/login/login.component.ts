@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthService } from 'src/app/_services/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -37,5 +38,6 @@ export class LoginComponent implements OnInit {
   login(frm):void {
     this.authService.login(frm.value.email, frm.value.password);
   }
+  
  }
 
