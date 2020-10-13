@@ -6,11 +6,13 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { UserDashboardComponent } from './components/user-dashboard/user-dashboard.component';
 import { NgTickerModule } from 'ng-ticker';
+import { CreateOrderComponent } from './components/create-order/create-order.component';
 
 @NgModule({
   declarations: [
     UserComponent, 
-    UserDashboardComponent
+    UserDashboardComponent, 
+    CreateOrderComponent
   ],
   imports: [
     CommonModule,
