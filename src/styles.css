@@ -15,3 +15,27 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: #1F2729;
   color: white;
 }
+
+/* arrow button glowing */
+.arrow{
+  color: #81D079;
+  width: 40px;
+  
+}
+.arrow{
+  animation: glowing 1300ms infinite;
+}
+@keyframes glowing {
+  0% {
+    color:  #25E095;
+    
+  }
+  50% {
+    color: #49e819;
+    
+  }
+  100% {
+    color: #2ba805;
+    
+  }
+}
