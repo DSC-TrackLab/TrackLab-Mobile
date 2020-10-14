@@ -3,7 +3,7 @@ button:focus{
 }
 
 .button {
-    padding: 12px;
+    padding: 0 12px;
     border-radius: 50%;
 }
 
@@ -13,6 +13,11 @@ button:focus{
 
 #button_check {
     color: green;
+}
+
+.items {
+    border: 0.5px solid #fff;
+    margin: 35px;
 }
 
 p {

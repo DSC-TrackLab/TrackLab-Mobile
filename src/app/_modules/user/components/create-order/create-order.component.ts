@@ -11,8 +11,13 @@ export class CreateOrderComponent implements OnInit {
   constructor(private location: Location) { }
 
   itemsNo: number = 1;
-  edit = false;
+  edit: boolean = false;
   emptyArray = new Array(this.itemsNo);
+  items = [];
+
+  onChange(): void {
+
+  }
 
   counter(i: number) {
     this.emptyArray = new Array(i);

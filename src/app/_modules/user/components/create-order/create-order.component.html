@@ -5,12 +5,15 @@
             <img  src="/assets/logo.svg" width="200px" />
             <div class="add_items" *ngIf="!edit">
                 <h2>Add items to be delivered</h2>
-                <div *ngFor="let i of emptyArray; let index = index">
-                    <p>Item {{index + 1}}</p>
-                    <button class="button" (click)="editItem()" mat-button>
-                        <mat-icon>create</mat-icon>
-                    </button>
-                </div><br/>
+                <div class='items'>
+                    <div><mat-icon>shopping_cart</mat-icon><h3>Cart</h3></div>
+                    <div *ngFor="let i of emptyArray; let index = index">
+                        <p>Item {{index + 1}}</p>
+                        <button class="button" (click)="editItem()" mat-button>
+                            <mat-icon>create</mat-icon>
+                        </button>
+                    </div><br/>
+                </div>
                 <button class="button" (click)="newItem()" mat-button>
                     <mat-icon>add_circle_outline</mat-icon>
                 </button>
