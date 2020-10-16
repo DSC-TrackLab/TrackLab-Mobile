@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { FormGroup, FormBuilder } from '@angular/forms'
 
 @Component({
   selector: 'app-create-order',
@@ -8,48 +9,49 @@ import { Location } from '@angular/common';
 })
 export class CreateOrderComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(private location: Location, private fb: FormBuilder) { }
 
-  itemsNo: number = 1;
   edit: boolean = false;
-  emptyArray = new Array(this.itemsNo);
-  items = [];
-
-  onChange(): void {
-
-  }
-
-  counter(i: number) {
-    this.emptyArray = new Array(i);
-    return this.emptyArray;
-  }
-
-  newItem(): void {
-    this.itemsNo += 1;
-    this.counter(this.itemsNo);
-  }
+  items: Array<Object> = [];
+  itemForm: FormGroup;
 
   editItem(): void {
     this.edit = true;
   }
 
   addItem(): void {
-    this.edit = false;
+    this.edit = true;
   }
 
   cancel(): void {
     this.edit = false;
   }
 
-  save(): void {
-    //save to DB
-  }
-
   backClicked() :void{
     this.location.back()
   }
 
+  onSubmit(): void {
+    this.items = [...this.items, this.itemForm.value];
+    console.log(this.items);
+    this.itemForm.patchValue({
+      label: '',
+      weight: '',
+      width: '',
+      length: '',
+      height: ''
+    });
+    this.edit = false;
+  }
+
   ngOnInit(): void {
+    this.itemForm = this.fb.group({
+      label: '',
+      weight: '',
+      width: '',
+      length: '',
+      height: ''
+    })
   }
 
 }

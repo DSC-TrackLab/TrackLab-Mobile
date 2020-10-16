@@ -4,52 +4,79 @@
             <mat-icon (click)="backClicked()" aria-hidden="false" aria-label="arrow icon" class="arrow" >keyboard_backspace</mat-icon>
             <img  src="/assets/logo.svg" width="200px" />
             <div class="add_items" *ngIf="!edit">
-                <h2>Add items to be delivered</h2>
                 <div class='items'>
                     <div><mat-icon>shopping_cart</mat-icon><h3>Cart</h3></div>
-                    <div *ngFor="let i of emptyArray; let index = index">
-                        <p>Item {{index + 1}}</p>
-                        <button class="button" (click)="editItem()" mat-button>
-                            <mat-icon>create</mat-icon>
-                        </button>
-                    </div><br/>
+                    <ng-ticker *ngIf="items.length === 0" speed="5s" class="ticker" >EMPTY</ng-ticker>
+                    <div *ngIf="items.length !== 0" class="cart">
+                        <div *ngFor="let item of items" class="item">
+                            <button (click)="editItem()" mat-button>
+                                <mat-icon class="create-item">create</mat-icon><br/>
+                                <p>{{item.label}}</p>
+                            </button>
+                        </div><br/>
+                    </div>
                 </div>
-                <button class="button" (click)="newItem()" mat-button>
+                <button type="button" class="button" (click)="addItem()" mat-button>
                     <mat-icon>add_circle_outline</mat-icon>
                 </button>
             </div>
-            <form class='example-form'>
+            <form class='example-form' [formGroup]="itemForm" (ngSubmit)="onSubmit()">
                 <div class='edit_item' *ngIf="edit">
                     <h2>Enter the item's information</h2>
                     <mat-card-content>
                         <mat-form-field class="example-full-width">
-                            <input type='text' matInput placeholder="Label">
+                            <input 
+                                formControlName="label"
+                                type='text' 
+                                matInput 
+                                placeholder="Label"
+                            >
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content>
                         <mat-form-field class="example-full-width">
-                            <input type='number' matInput placeholder="Weight[kg]">
+                            <input 
+                                formControlName="weight"
+                                type='number' 
+                                matInput 
+                                placeholder="Weight[kg]"
+                            >
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content>
                         <mat-form-field class="example-full-width">
-                            <input type='number' matInput placeholder="Length[cm]">
+                            <input 
+                                type='number' 
+                                matInput 
+                                placeholder="Length[cm]"
+                                formControlName="length"
+                            >
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content>
                         <mat-form-field class="example-full-width">
-                            <input type='number' matInput placeholder="Width[cm]">
+                            <input 
+                                type='number'  
+                                matInput 
+                                placeholder="Width[cm]"
+                                formControlName="width"
+                            >
                         </mat-form-field>
                     </mat-card-content>
                     <mat-card-content>
                         <mat-form-field class="example-full-width">
-                            <input type='number' matInput placeholder="Height[cm]">
+                            <input 
+                                type='number' 
+                                matInput 
+                                placeholder="Height[cm]"
+                                formControlName="height"
+                            >
                         </mat-form-field>
                     </mat-card-content>
                     <button id="button_clear" class="button" type='button' (click)="cancel()" mat-button><mat-icon>clear</mat-icon></button>
-                    <button id="button_check" class="button" type='button' (click)="addItem()" mat-button><mat-icon>check</mat-icon></button>
+                    <button id="button_check" class="button" type='submit' mat-button><mat-icon>check</mat-icon></button>
                 </div>
-                <button *ngIf="!edit" (click)="save()" mat-stroked-button class="checkout_button">Checkout</button>
+                <button *ngIf="!edit" mat-stroked-button class="checkout_button">Checkout</button>
             </form>
         </mat-card>
     </div>

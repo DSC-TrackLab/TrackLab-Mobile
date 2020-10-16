@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from '../../angular-material.module';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
@@ -19,7 +19,7 @@ import { CreateOrderComponent } from './components/create-order/create-order.com
     UserRoutingModule,
     AngularMaterialModule,
     NgTickerModule,
-    FormsModule
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }
