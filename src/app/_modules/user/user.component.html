@@ -1,0 +1,73 @@
+<div class="container">
+    <div  class="justify-content-center text-center">
+        <div>
+            <mat-card class="g-box">
+                <mat-icon (click)="backClicked()" aria-hidden="false" aria-label="arrow icon" class="arrow" >keyboard_backspace</mat-icon>
+                <img  src="/assets/logo.svg" width="200px" />
+                <mat-card-title class="text-center">
+                    <h3 class="mat-h3 ">Profile</h3>
+                </mat-card-title>
+                <mat-card-content>
+                    <p>Update your personal information by clicking the edit button below</p>
+                </mat-card-content>
+                <form class="example-form">
+                    <div *ngIf="!edit">
+                        <mat-icon class='icon' aria-hidden="false" (click)="edit = true" *ngIf="!edit">edit</mat-icon>
+                        <table class='info-table'>
+                            <tr>
+                                <td>Full Name</td>
+                                <td>Gladys Mae West</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>gladysmaewest@gps.com</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>*********</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class='edits' *ngIf='edit'>
+                        <mat-icon class='icon' aria-hidden="false" (click)="edit = false" *ngIf="edit">clear</mat-icon>
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input type='text' matInput placeholder="Full Name">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input type='email' matInput placeholder="Email">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input type='text' matInput placeholder="Address">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input type='password' matInput placeholder="Current Password">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input type='password' matInput placeholder="New Password">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <mat-card-content>
+                            <mat-form-field class="example-full-width">
+                                <input type='password' matInput placeholder="Confirm New Password">
+                            </mat-form-field>
+                        </mat-card-content>
+                        <button mat-stroked-button class="btn m-4">Update</button>
+                    </div>
+                </form>
+            </mat-card>
+        </div>
+    </div>  
+</div>

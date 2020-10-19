@@ -1,0 +1,50 @@
+<div class="container">
+  <div  class="justify-content-center text-center">
+    <div class="">
+      <mat-card class="g-box">
+        <!-- <mat-icon aria-hidden="false" aria-label="arrow icon" class="arrow" (click)="backClicked()">keyboard_backspace</mat-icon> -->
+        <app-back-arrow (click)="backClicked()"></app-back-arrow>
+        <img  src="/assets/logo.svg" width="200px" />
+        <mat-header class="text-center">
+          <h3 class="mat-h3 ">Register</h3>
+         </mat-header>
+        <form class="example-form">
+    
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Full Name">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email">
+            </mat-form-field>
+          </mat-card-content>
+
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password">
+            </mat-form-field>
+          </mat-card-content>
+
+
+        <mat-card-content>
+          <h4 class="mat-h4 mb-4">Sign up as:</h4>
+          <mat-radio-group class="justify-content-center" >
+            <mat-radio-button value="always" (click)="driver()">Courier/Driver</mat-radio-button>
+            <mat-radio-button value="always">Customer</mat-radio-button>
+            <mat-radio-button value="auto" >Guest Recipient</mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content>
+    
+          <button mat-stroked-button class="btn m-4">Create Account</button>
+         
+        </form>
+        <div class="spacer">
+         Already have an account? <a (click)="link('login')">Log in</a>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>
