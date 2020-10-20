@@ -3,13 +3,13 @@
         <mat-card class="g-box">
             <mat-icon (click)="backClicked()" aria-hidden="false" aria-label="arrow icon" class="arrow" >keyboard_backspace</mat-icon>
             <img  src="/assets/logo.svg" width="200px" />
-            <div class="add_items" *ngIf="!edit">
+            <div class="add_items" *ngIf="!add && !edit">
                 <div class='items'>
                     <div><mat-icon>shopping_cart</mat-icon><h3>Cart</h3></div>
                     <ng-ticker *ngIf="items.length === 0" speed="5s" class="ticker" >EMPTY</ng-ticker>
                     <div *ngIf="items.length !== 0" class="cart">
-                        <div *ngFor="let item of items" class="item">
-                            <button (click)="editItem()" mat-button>
+                        <div *ngFor="let item of items; let index = index" class="item">
+                            <button (click)="editItem(index)" mat-button>
                                 <mat-icon class="create-item">create</mat-icon><br/>
                                 <p>{{item.label}}</p>
                             </button>
@@ -21,7 +21,7 @@
                 </button>
             </div>
             <form class='example-form' [formGroup]="itemForm" (ngSubmit)="onSubmit()">
-                <div class='edit_item' *ngIf="edit">
+                <div class='edit_item' *ngIf="edit || add">
                     <h2>Enter the item's information</h2>
                     <mat-card-content>
                         <mat-form-field class="example-full-width">
@@ -76,7 +76,7 @@
                     <button id="button_clear" class="button" type='button' (click)="cancel()" mat-button><mat-icon>clear</mat-icon></button>
                     <button id="button_check" class="button" type='submit' mat-button><mat-icon>check</mat-icon></button>
                 </div>
-                <button *ngIf="!edit" mat-stroked-button class="checkout_button">Checkout</button>
+                <button *ngIf="!edit && !add" mat-stroked-button class="checkout_button">Checkout</button>
             </form>
         </mat-card>
     </div>

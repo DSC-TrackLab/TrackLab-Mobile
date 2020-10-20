@@ -11,19 +11,33 @@ export class CreateOrderComponent implements OnInit {
 
   constructor(private location: Location, private fb: FormBuilder) { }
 
+  add: boolean = false;
   edit: boolean = false;
+  editIndex: number;
   items: Array<Object> = [];
   itemForm: FormGroup;
+  initialForm = {
+    label: '',
+    weight: '',
+    width: '',
+    length: '',
+    height: ''
+  };
 
-  editItem(): void {
+  editItem(itemIndex: number): void {
+    const match = this.items.filter((item,index) => index === itemIndex);
+    this.editIndex = itemIndex;
+    this.itemForm.patchValue(match[0]);
     this.edit = true;
   }
 
   addItem(): void {
-    this.edit = true;
+    this.add = true;
   }
 
   cancel(): void {
+    this.itemForm.patchValue(this.initialForm);
+    this.add = false;
     this.edit = false;
   }
 
@@ -32,15 +46,12 @@ export class CreateOrderComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.items = [...this.items, this.itemForm.value];
-    console.log(this.items);
-    this.itemForm.patchValue({
-      label: '',
-      weight: '',
-      width: '',
-      length: '',
-      height: ''
-    });
+    if(this.add){
+      this.items = [...this.items, this.itemForm.value];
+      this.itemForm.patchValue(this.initialForm);
+      this.add = false;
+    }
+    this.items[this.editIndex] = this.itemForm.value;
     this.edit = false;
   }
 
@@ -53,5 +64,4 @@ export class CreateOrderComponent implements OnInit {
       height: ''
     })
   }
-
 }
