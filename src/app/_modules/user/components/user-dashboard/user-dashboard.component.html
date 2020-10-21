@@ -6,9 +6,9 @@
           <ng-ticker><h2>Get the best delivery service in town</h2></ng-ticker>
           <div class='buttons-container'>
             <div class='buttons'>
-              <button mat-button>
+              <button (click)="link('user/create-order')" mat-button>
                 <mat-icon>shopping_cart</mat-icon><br/>
-                <p>Make Order</p>
+                <p>Create Order</p>
               </button>
               <button mat-button>
                 <mat-icon>place</mat-icon><br/>
@@ -22,7 +22,7 @@
                 <mat-icon>payment</mat-icon><br/>
                 <p>Payment Type</p>
               </button>
-              <button (click)="link('user')" mat-button>
+              <button (click)="link('user/profile')" mat-button>
                 <mat-icon>perm_identity</mat-icon><br/>
                 <p>Profile</p>
               </button>

@@ -1,0 +1,76 @@
+button:focus{
+    outline: none;
+}
+
+.button {
+    padding: 0 12px;
+    border-radius: 50%;
+}
+
+#button_clear {
+    color: red;
+}
+
+#button_check {
+    color: green;
+}
+
+.items {
+    border: 0.5px solid #fff;
+    border-radius: 50px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.item button{
+    width: 80%;
+    background-color: #1b2324;
+    margin: 10px 20px;
+    border-radius: 30px;
+}
+
+.create-item {
+    color: #bbbebe;
+}
+
+:host ::ng-deep .ticker {
+    margin: 5px;
+}
+
+p {
+    display: inline;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.checkout_button{
+    margin: 10px;
+    background: #25E095 !important;
+}
+
+::ng-deep  .mat-form-field-label {
+/*change color of label*/
+color:#DBDBDB !important ;
+text-size-adjust: 24px;
+}
+
+::ng-deep.mat-form-field-underline {
+/*change color of underline*/
+background-color: #81D079 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+/*change color of underline when focused*/
+background-color: green !important;;
+}
+
+@media only screen and (min-width: 600px) {
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+      margin-left: 27%;
+    }
+  }
