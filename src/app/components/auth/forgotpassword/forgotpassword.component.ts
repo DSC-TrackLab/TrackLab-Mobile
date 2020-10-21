@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {Location} from '@angular/common';
+import { AuthService } from 'src/app/_services/auth.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {Location} from '@angular/common';
 })
 export class ForgotpasswordComponent implements OnInit {
 
-  constructor(private _location:Location) { }
+  constructor(private _location:Location, public authService: AuthService) { }
 
   ngOnInit(): void {
   }

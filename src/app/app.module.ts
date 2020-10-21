@@ -2,8 +2,11 @@ import { FirebaseModule } from './_modules/firebase/firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularMaterialModule } from './angular-material.module';
-
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from '@angular/fire';
+import {AuthService} from './_services/auth.service'
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +17,11 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
 import { ForgotpasswordComponent } from './components/auth/forgotpassword/forgotpassword.component';
 import { GuestsigninComponent } from './components/auth/guestsignin/guestsignin.component';
 import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { PasswordresetComponent } from './components/auth/passwordreset/passwordreset.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +31,9 @@ import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.c
     NavbarComponent,
     ForgotpasswordComponent,
     GuestsigninComponent,
-    BackArrowComponent
+    BackArrowComponent,
+    AdminComponent,
+    PasswordresetComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +42,11 @@ import { BackArrowComponent } from './components/buttons/back-arrow/back-arrow.c
     AngularMaterialModule,
     FormsModule,
 	ReactiveFormsModule,
-	FirebaseModule
+  FirebaseModule,
+  AngularFirestoreModule
   ],
   
-  providers: [],
+  providers: [AngularFirestore,AuthService],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })

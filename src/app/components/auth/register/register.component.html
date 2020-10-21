@@ -8,42 +8,63 @@
         <mat-header class="text-center">
           <h3 class="mat-h3 ">Register</h3>
          </mat-header>
-        <form class="example-form">
+        <form class="example-form"  #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
     
           <mat-card-content>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Full Name">
+              <input ngModel matInput placeholder="Name" type="text" #name="ngModel" name="name"  >
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input ngModel matInput placeholder="Surname" type="text" #surname="ngModel" name="surname"  >
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input ngModel matInput placeholder="Phone Number" type="number" #phonenumber="ngModel" name="phonenumber"  >
             </mat-form-field>
           </mat-card-content>
 
           <mat-card-content>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Email">
+              <input ngModel matInput placeholder="Email" type="email" #email="ngModel" name="email">
             </mat-form-field>
           </mat-card-content>
 
           <mat-card-content>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Password">
+              <input ngModel matInput placeholder="Password " type="password" #password="ngModel" name="password" >
             </mat-form-field>
           </mat-card-content>
 
 
+        <!-- <mat-card-content>
+          <h4 class="mat-h4 mb-4">Sign up as:</h4>
+          <mat-radio-group class="justify-content-center" >
+            <mat-radio-button value="Customer" #role="ngModel" name="role" (change)="onClick($event)" ngModel>Courier/Driver</mat-radio-button>
+            <mat-radio-button value="Driver" #role="ngModel" name="role"  ngModel>Customer</mat-radio-button>
+            <mat-radio-button value="Guest" #role="ngModel" name="role" (change)="onClick($event)" (click)="guest()"  ngModel>Guest Recipient</mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content> -->
         <mat-card-content>
           <h4 class="mat-h4 mb-4">Sign up as:</h4>
           <mat-radio-group class="justify-content-center" >
-            <mat-radio-button value="auto">Courier/Driver</mat-radio-button>
-            <mat-radio-button value="always">Customer</mat-radio-button>
-            <mat-radio-button value="always" (click)="guest()">Guest Recipient</mat-radio-button>
+            <div *ngFor="let role of Roles">
+              <mat-radio-button  value="{{role}}" #role="ngModel" name="role" (change)="onItemChange($event.value)" (click)="handleRadioClicked(role)" ngModel>{{role}}</mat-radio-button>
+            </div>
+         
           </mat-radio-group>
         </mat-card-content>
     
-          <button mat-stroked-button class="btn m-4">Create Account</button>
+          <button mat-stroked-button class="btn m-4" type="submit">Create Account</button>
          
         </form>
         <div class="spacer">
          Already have an account? <a (click)="link('login')">Log in</a>
         </div>
+
+      
       </mat-card>
     </div>
   </div>
