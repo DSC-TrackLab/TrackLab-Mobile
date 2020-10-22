@@ -1,14 +1,40 @@
+
+.example-full-width {
+  width: 50%;
+}
+
+::ng-deep  .mat-form-field-label {
+  /*change color of label*/
+  color:#DBDBDB !important ;
+  text-size-adjust: 24px;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #81D079 !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: green !important;;
+ }
+button{
+  background: #25E095 !important;
+}
+
+/* arrow button glowing */
+
 .spacer{
-    color:#25E095 ;
-    margin-top: 3.5rem;
-    margin-bottom: 4.5rem;
-  }
-  
-  .spacer a:hover{
-    color:green !important;
-  }
-  
-  a{
-    cursor: pointer;
-    color: #81D079  !important;
-  }
+  color:#25E095 ;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.spacer a:hover{
+  color:green !important;
+}
+
+a{
+  cursor: pointer;
+  color: #81D079  !important;
+}

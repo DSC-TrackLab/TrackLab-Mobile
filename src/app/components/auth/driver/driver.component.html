@@ -16,26 +16,78 @@
             <h3 class="mat-h3 ">Driver Sign-up</h3>
            </mat-header>
           <form class="example-form">
+
+            <!-- <mat-card-content>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email">
+              </mat-form-field>
+            </mat-card-content> -->
       
           <mat-card-content>
             <h4 class="mat-h4 mb-4">Please select vehicle type:</h4>
             <mat-radio-group class="justify-content-center" >
+              <mat-card-content>
+                <mat-form-field class="example-full-width">
               <mat-radio-button value="always" (click)="driver()">Motorbike</mat-radio-button>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
               <mat-radio-button value="always">Compact car</mat-radio-button>
-              <mat-radio-button value="always">SUV</mat-radio-button>
-              <mat-radio-button value="always">Van</mat-radio-button>
+          </mat-form-field>
+        </mat-card-content>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <mat-radio-button value="always">SUV</mat-radio-button>
+         </mat-form-field>
+        </mat-card-content>
+         
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <mat-radio-button value="always">Van</mat-radio-button>
+           </mat-form-field>
+          </mat-card-content>
+           
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
               <mat-radio-button value="always">Stepvan</mat-radio-button>
-              <mat-radio-button value="always">Pickup</mat-radio-button>
-              <mat-radio-button value="always">Flabed truck</mat-radio-button>
-              <mat-radio-button value="always">Utility truck</mat-radio-button>
-              <mat-radio-button value="always">Straight truck</mat-radio-button>
-              <mat-radio-button value="always">Car carrier</mat-radio-button>            
+             </mat-form-field>
+            </mat-card-content>
+              
+            <mat-card-content>
+              <mat-form-field class="example-full-width">
+                <mat-radio-button value="always">Pickup</mat-radio-button>
+               </mat-form-field>
+              </mat-card-content>
+
+              <mat-card-content>
+                <mat-form-field class="example-full-width">
+                  <mat-radio-button value="always">Flabed truck</mat-radio-button>
+                 </mat-form-field>
+                </mat-card-content>
+  
+                <mat-card-content>
+                  <mat-form-field class="example-full-width">
+                    <mat-radio-button value="always">Utility truck</mat-radio-button>
+                   </mat-form-field>
+                  </mat-card-content>
+              
+                  <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                      <mat-radio-button value="always">Straight truck</mat-radio-button>
+                     </mat-form-field>
+                    </mat-card-content>
+                
+                    <mat-card-content>
+                      <mat-form-field class="example-full-width">
+                        <mat-radio-button value="always">Car carrier</mat-radio-button> 
+                       </mat-form-field>
+                   </mat-card-content>                       
               </mat-radio-group>
           </mat-card-content>
       
             <button mat-stroked-button class="btn m-4">Next</button>
-           
-          </form>
+           </form>
 
         </mat-card>
       </div>
